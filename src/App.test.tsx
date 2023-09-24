@@ -4,5 +4,5 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  expect(screen.getByText(/Hello World/i)).toBeDefined();
+  expect(screen.getByText(/01:01:01/i)).toBeDefined();
 });
