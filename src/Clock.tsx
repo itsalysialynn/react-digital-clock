@@ -1,4 +1,15 @@
 import { useCallback, useState, useEffect } from 'react';
+import styled from 'styled-components';
+
+const ClockLayout = styled.div`
+  background: black;
+  color: white;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  font-size: 8rem;
+  padding: 3rem;
+  font-weight: bold;
+  display: inline-block;
+`;
 
 const Clock = () => {
   const [hours, setHours] = useState(1);
@@ -24,7 +35,11 @@ const Clock = () => {
 
   const dateTimeString = `${formatDigit(hours)}:${formatDigit(minutes)}:${formatDigit(seconds)}`;
 
-  return <time dateTime={dateTimeString}>{dateTimeString}</time>;
+  return (
+    <ClockLayout>
+      <time dateTime={dateTimeString}>{dateTimeString}</time>
+    </ClockLayout>
+  );
 };
 
 export default Clock;

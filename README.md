@@ -29,3 +29,7 @@ Here's an example of a digital clock. Each digit needs to be rendered by individ
 ```
 
 4. Visit local app at http://localhost:3000
+
+## Screenshots
+
+!["Screenshot of the home page"](https://github.com/itsalysialynn/react-digital-clock/blob/main/images/clock.png)
