@@ -5,10 +5,6 @@ const Clock = () => {
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(1);
 
-  const formatDigit = useCallback((number: number) => {
-    return ('0' + number).slice(-2);
-  }, []);
-
   const setClock = useCallback(() => {
     const now = new Date();
     setHours(now.getHours());
@@ -18,11 +14,17 @@ const Clock = () => {
 
   useEffect(() => {
     setClock();
+    const interval = setInterval(setClock, 1000);
+    return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {}, [seconds, minutes, hours]);
+  const formatDigit = useCallback((number: number) => {
+    return ('0' + number).slice(-2);
+  }, []);
 
-  return <div>{`${formatDigit(hours)}:${formatDigit(minutes)}:${formatDigit(seconds)}`}</div>;
+  const dateTimeString = `${formatDigit(hours)}:${formatDigit(minutes)}:${formatDigit(seconds)}`;
+
+  return <time dateTime={dateTimeString}>{dateTimeString}</time>;
 };
 
 export default Clock;
